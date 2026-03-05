@@ -2,6 +2,10 @@ import streamlit as st
 import pandas as pd
 import xml.etree.ElementTree as ET
 import io
+import sys
+import subprocess
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "openpyxl"])
 
 # Configuración de la página
 st.set_page_config(page_title="Extractor de XML", layout="wide")
