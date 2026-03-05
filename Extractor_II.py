@@ -3,15 +3,6 @@ import pandas as pd
 import xml.etree.ElementTree as ET
 import io
 
-import subprocess
-import sys
-
-def install(package):
-    subprocess.check_call([sys.executable, "pip", "install", package])
-
-# Example usage:
-install("openpyxl")
-
 # Configuración de la página
 st.set_page_config(page_title="Extractor de XML", layout="wide")
 
