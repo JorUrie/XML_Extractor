@@ -5,7 +5,7 @@ import io
 import sys
 import subprocess
 
-subprocess.check_call([sys.executable, "py", "-m", "pip", "install", "openpyxl"])
+subprocess.check_call([sys.executable, "python3", "-m", "pip", "install", "openpyxl"])
 
 # Configuración de la página
 st.set_page_config(page_title="Extractor de XML", layout="wide")
