@@ -7,7 +7,7 @@ import subprocess
 import sys
 
 def install(package):
-    subprocess.check_call([sys.executable, "python3", "-m", "pip", "install", package])
+    subprocess.check_call([sys.executable, "pip", "install", package])
 
 # Example usage:
 install("openpyxl")
