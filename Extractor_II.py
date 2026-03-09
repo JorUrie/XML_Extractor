@@ -45,10 +45,11 @@ def extract_cfdi_data(xml_file):
         metodo_pago = root.get('MetodoDePago', '') # Común en CFDI de Ingreso, no en Pago
         codigo_postal = root.get('LugarExpedicion', '')
 
-        # Si el subtotal es '0' o no existe (común en Complementos de Pago), buscamos en Totales de Pago
+        # Lógica para Subtotal: Si el subtotal del comprobante es '0' (típico en Complementos de Pago), 
+        # se sustituye por el valor de 'TotalTrasladosBaseIVA16' del complemento.
         subtotal = root.get('SubTotal', '')
-        if subtotal in ['0', '0.00', '0.0', ''] and totales_pago is not None:
-            subtotal = totales_pago.get('MontoTotalPagos', subtotal)
+        if subtotal in ('0', '0.00', '0.0', '') and totales_pago is not None:
+            subtotal = totales_pago.get('TotalTrasladosBaseIVA16', subtotal) # Usa el subtotal original como fallback
         
         # El total puede venir del nodo principal o del complemento de pago
         total = totales_pago.get('MontoTotalPagos', '') if totales_pago is not None else root.get('Total', '')
