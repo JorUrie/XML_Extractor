@@ -3,4 +3,3 @@ pandas
 openpyxl
 lxml
 setuptools>=78.1.1
-whell>=0.45.1
